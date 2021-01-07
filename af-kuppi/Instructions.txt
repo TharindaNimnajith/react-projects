@@ -1,0 +1,4 @@
+1. Go to backend folder and open a cmd. Then type npm install.
+2. Type npm run development in cmd to start backend.
+3. Go to frontend folder and open a cmd. Then type npm install.
+4. Type npm start in cmd to start frontend.
