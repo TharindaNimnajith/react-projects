@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import reportWebVitals from './reportWebVitals';
+import {GlobalState} from './context/global-state';
+import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <GlobalState>
+      <App/>
+    </GlobalState>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

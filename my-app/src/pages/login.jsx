@@ -1,9 +1,10 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {AppContext} from '../context/app-context'
 
 export const Login = () => {
   const appContext = useContext(AppContext);
+  // let token = appContext.accessToken;
 
   // hooks
   // const [email, setEmail] = useState('');
@@ -13,9 +14,9 @@ export const Login = () => {
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
 
-  useEffect(() => {
-    // console.log('useEffect')
-  },[]);
+  // useEffect(() => {
+  //   console.log(token)
+  // }, [token]);
 
   const onChangeEmail = (event) => {
     setValidEmail(event.target.validity.valid);
@@ -34,8 +35,7 @@ export const Login = () => {
     }
     axios.post('https://vertex-ideaapp.azurewebsites.net/api/Auth/Login', data).then(res => {
       let access_token = res.data.data.access_token;
-      console.log(res.data);
-      appContext.appContextLogin(access_token);
+      appContext.login(access_token);
     }).catch(err => {
       console.error(err);
     })

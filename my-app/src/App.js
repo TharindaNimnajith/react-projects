@@ -2,12 +2,10 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Login} from './pages/login';
 import {Profile} from './pages/profile';
-import {NavBar} from "./components/nav-bar";
-import {AppContext} from "./context/app-context";
+import {NavBar} from './components/nav-bar';
 import './App.css';
 
 function App() {
-  const appContext = useContext(AppContext);
   return (
     <div>
       <NavBar/>
@@ -20,13 +18,9 @@ function App() {
             <Route path='/logout'>
               <Login/>
             </Route>
-            {appContext.accessToken === null ? (
-
-            )}
             <Route path='/profile'>
               <Profile/>
             </Route>
-
           </Switch>
         </BrowserRouter>
       </div>
